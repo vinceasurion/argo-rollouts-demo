@@ -1,6 +1,6 @@
 # argo-rollouts-demo
 
-Argo Rollouts Demo
+Argo Rollouts Demo application running <http://localhost:3002/>
 
 ## Commands
 
@@ -15,4 +15,14 @@ Promote Rollout
 
 ```sh
 k argo rollouts promote rollouts-demo
+```
+
+Abort Rollout
+
+```sh
+# Red image indicates error
+k argo rollouts set image rollouts-demo \
+  rollouts-demo=argoproj/rollouts-demo:red
+
+k argo rollouts abort rollouts-demo
 ```
