@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: example-opensearch-analysis
+spec:
+  metrics:
+    - name: opensearch-metric
+      interval: 1m
+      successCondition: result > 0
+      provider:
+        web:
+          url: "http://opensearch-cluster:9200/_search"
+          headers:
+            - name: Content-Type
+              value: application/json
+          jsonPath: "$.hits.total.value"
+          body: |
+            {
+              "query": {
+                "match_all": {}
+              }
+            }
