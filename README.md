@@ -4,6 +4,12 @@ Argo Rollouts Demo application running <http://localhost:3002/>
 
 ## Commands
 
+Watch the rollout status
+
+```sh
+k argo rollouts get rollout rollouts-demo --watch
+```
+
 Update deployment image
 
 ```sh
